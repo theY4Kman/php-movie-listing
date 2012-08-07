@@ -135,7 +135,7 @@ function read_dir_recursive($path, $tab=3)
         while (false !== ($entry = readdir($handle))) {
             if ($entry != "." && $entry != "..") {
                 $files++;
-                $entry_path = join_paths($path, $entry);
+                $entry_path = fix_path_separators(join_paths($path, $entry));
                 list($sub_entries, $sub_videos, $sub_out) = read_dir_recursive($entry_path);
                 
                 $title = $entry;
